@@ -1,70 +1,57 @@
-body {
+body, html {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
 }
 
-.navbar {
-    background-color: #333;
-    color: #fff;
+.wrapper {
+    display: flex;
+}
+
+.sidebar {
     position: fixed;
-    width: 100%;
     top: 0;
-    z-index: 1000;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background: #333;
+    transition: left 0.3s ease;
 }
 
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
-
-.logo {
-    font-size: 24px;
-}
-
-.menu {
-    list-style: none;
-    margin: 0;
+.sidebar ul {
+    margin-top: 50px;
     padding: 0;
-    display: flex;
+    list-style: none;
 }
 
-.menu li {
-    margin: 0 10px;
+.sidebar ul li {
+    padding: 15px;
+    text-align: center;
 }
 
-.menu li a {
-    text-decoration: none;
+.sidebar ul li a {
     color: #fff;
-}
-
-.toggle {
-    font-size: 24px;
-    cursor: pointer;
-    display: none;
+    text-decoration: none;
 }
 
 .content {
-    padding-top: 60px; /* Adjust this value to match your menu height */
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+.toggle-btn {
+    position: absolute;
+    top: 20px;
+    left: 10px;
+    cursor: pointer;
+    z-index: 2;
+}
 
-    .menu {
-        display: none;
-        flex-direction: column;
-    }
-
-    .menu.active {
-        display: flex;
-    }
-
-    .toggle {
-        display: block;
-    }
+.toggle-btn span {
+    display: block;
+    width: 30px;
+    height: 5px;
+    background: #fff;
+    margin-bottom: 5px;
 }
