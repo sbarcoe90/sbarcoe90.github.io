@@ -56,6 +56,7 @@ body {
     .menu {
         display: none;
         flex-direction: column;
+        tab-size:5pc;
     }
 
     .menu.active {
