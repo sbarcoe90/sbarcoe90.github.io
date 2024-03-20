@@ -1,102 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Scroll Effects Website</title>
-<style>
-  /* Basic styling */
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-  }
-  /* Header styling */
-  header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-  /* Main content styling */
-  .section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 2rem;
-    color: #333;
-  }
-  .section:nth-child(even) {
-    background-color: #f4f4f4;
-  }
-  /* Scroll arrow styling */
-  .scroll-down {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #333;
-    font-size: 2rem;
-    cursor: pointer;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Menu Bar</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="logo">Your Logo</div>
+            <ul class="menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="toggle" onclick="toggleMenu()">&#9776;</div>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <!-- Your website content goes here -->
+    </div>
 
-<header>
-  <h1>Scroll Effects Website</h1>
-</header>
-
-<div class="section" id="section1">
-  <p>Section 1</p>
-</div>
-
-<div class="section" id="section2">
-  <p>Section 2</p>
-</div>
-
-<div class="section" id="section3">
-  <p>Section 3</p>
-</div>
-
-<div class="section" id="section4">
-  <p>Section 4</p>
-</div>
-
-<div class="scroll-down" onclick="scrollToNextSection()">&#x2193;</div>
-
-<script>
-  // Function to scroll to the next section
-  function scrollToNextSection() {
-    const currentSection = document.querySelector('.section.active');
-    const nextSection = currentSection.nextElementSibling;
-
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-
-  // Add event listener for scrolling to change active section
-  document.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('.section');
-    let currentActive = null;
-
-    sections.forEach(section => {
-      const rect = section.getBoundingClientRect();
-      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
-        currentActive = section;
-      }
-    });
-
-    if (currentActive) {
-      sections.forEach(section => section.classList.remove('active'));
-      currentActive.classList.add('active');
-    }
-  });
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
