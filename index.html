@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fancy Responsive Website</title>
+<title>Scroll Effects Website</title>
 <style>
   /* Basic styling */
   body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    scroll-behavior: smooth;
   }
   /* Header styling */
   header {
@@ -19,58 +20,81 @@
     text-align: center;
   }
   /* Main content styling */
-  .container {
-    padding: 20px;
+  .section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    font-size: 2rem;
+    color: #333;
   }
-  .container img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
+  .section:nth-child(even) {
+    background-color: #f4f4f4;
   }
-  /* Footer styling */
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  /* Scroll arrow styling */
+  .scroll-down {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #333;
+    font-size: 2rem;
+    cursor: pointer;
   }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>Fancy Responsive Website</h1>
+  <h1>Scroll Effects Website</h1>
 </header>
 
-<div class="container">
-  <h2>Welcome to our fancy website!</h2>
-  <p>This website showcases some fancy stuff.</p>
-  <img src="https://via.placeholder.com/400" alt="Fancy Image">
+<div class="section" id="section1">
+  <p>Section 1</p>
 </div>
 
-<footer>
-  <p>&copy; 2024 Fancy Website. All rights reserved.</p>
-</footer>
+<div class="section" id="section2">
+  <p>Section 2</p>
+</div>
 
-<!-- JavaScript for a fancy effect -->
+<div class="section" id="section3">
+  <p>Section 3</p>
+</div>
+
+<div class="section" id="section4">
+  <p>Section 4</p>
+</div>
+
+<div class="scroll-down" onclick="scrollToNextSection()">&#x2193;</div>
+
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const image = document.querySelector('img');
-    image.addEventListener('mouseenter', function() {
-      this.style.transform = 'scale(1.1)';
-      this.style.transition = 'transform 0.3s';
+  // Function to scroll to the next section
+  function scrollToNextSection() {
+    const currentSection = document.querySelector('.section.active');
+    const nextSection = currentSection.nextElementSibling;
+
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Add event listener for scrolling to change active section
+  document.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('.section');
+    let currentActive = null;
+
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+        currentActive = section;
+      }
     });
-    image.addEventListener('mouseleave', function() {
-      this.style.transform = 'scale(1)';
-      this.style.transition = 'transform 0.3s';
-    });
+
+    if (currentActive) {
+      sections.forEach(section => section.classList.remove('active'));
+      currentActive.classList.add('active');
+    }
   });
 </script>
 
