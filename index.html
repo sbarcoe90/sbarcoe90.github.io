@@ -1,67 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
-            background-color: #666;
-            text-align: center;
-            padding: 10px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            padding: 10px 20px;
-        }
-        nav a:hover {
-            background-color: #999;
-        }
-        main {
-            padding: 20px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fancy Responsive Website</title>
+<style>
+  /* Basic styling */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  /* Header styling */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  /* Main content styling */
+  .container {
+    padding: 20px;
+    text-align: center;
+  }
+  .container img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+  /* Footer styling */
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+</style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website</h1>
-    </header>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="contact.html">Contact</a>
-    </nav>
-    <main>
-        <h2>Home</h2>
-        <p>This is the home page of our website.
-            I am writing another change here to test a new commit/push to GitHubbbb.
-            <a href="contact.html">Contact</a>
-        </p>
-    </main>
-    <footer>
-        <p>&copy; 2024 My Website. All rights reserved.</p>
-    </footer>
+
+<header>
+  <h1>Fancy Responsive Website</h1>
+</header>
+
+<div class="container">
+  <h2>Welcome to our fancy website!</h2>
+  <p>This website showcases some fancy stuff.</p>
+  <img src="https://via.placeholder.com/400" alt="Fancy Image">
+</div>
+
+<footer>
+  <p>&copy; 2024 Fancy Website. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript for a fancy effect -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const image = document.querySelector('img');
+    image.addEventListener('mouseenter', function() {
+      this.style.transform = 'scale(1.1)';
+      this.style.transition = 'transform 0.3s';
+    });
+    image.addEventListener('mouseleave', function() {
+      this.style.transform = 'scale(1)';
+      this.style.transition = 'transform 0.3s';
+    });
+  });
+</script>
+
 </body>
 </html>
