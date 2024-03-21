@@ -3,31 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>JalapeñoJoy.com</title>
+    <style>
+        /* Basic styling for the navigation */
+        nav {
+            background-color: #333;
+            padding: 10px 20px;
+        }
+        
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+        }
+        
+        nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+        
+        /* Responsive styling */
+        @media(max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            nav.active ul {
+                display: block;
+                background-color: #333;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            nav.active ul li {
+                display: block;
+                margin-right: 0;
+            }
+            
+            nav.active ul li a {
+                display: block;
+                padding: 15px 0;
+            }
+        }
+        
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Styling for the hamburger menu icon */
+        @media(max-width: 768px) {
+            .menu-icon {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 20px;
+                color: #fff;
+                font-size: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">Your Logo</div>
-            <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <div class="hamburger" onclick="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
-        </div>
+    <nav>
+        <div class="menu-icon">&#9776;</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Jalapeño Facts</a></li>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">GIFs Gallery</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </nav>
-    
-    <div class="content">
-        <!-- Your website content goes here -->
-    </div>
 
-    <script src="script.js"></script>
+    <script>
+        // JavaScript to toggle the responsive navigation menu
+        const menuIcon = document.querySelector('.menu-icon');
+        const nav = document.querySelector('nav');
+
+        menuIcon.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
